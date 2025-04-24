@@ -1,6 +1,6 @@
 # RAG-система на FastAPI + Milvus + LLaMA
 
-![Architecture](assets/rag_architecture.png)
+![Architecture](assets/architecture.png)
 
 ---
 
