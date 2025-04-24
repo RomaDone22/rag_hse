@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  milvus:
+    image: milvusdb/milvus:2.2.11
+    container_name: milvus
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    volumes:
+      - ./milvus_data:/var/lib/milvus
+    environment:
+      - TZ=UTC
+      - MILVUS_LOG_LEVEL=info
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bot_api
+    ports:
+      - "8585:8585"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - milvus
+    environment:
+      - MILVUS_HOST=milvus
+      - MILVUS_PORT=19530

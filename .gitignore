@@ -1,0 +1,7 @@
+/venv
+milvus_data/
+data/*.pkl
+data/fine_tuned_openllama/
+__pycache__/
+*.pyc
+.env
