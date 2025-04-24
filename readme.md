@@ -13,14 +13,29 @@
 - **Faiss** — поиск по базе готовых QA-ответов (FAQ);
 - **Sentence-Transformers** — генерация эмбеддингов;
 - **Reranker (BGE)** — повторная переоценка top-k документов;
-- **LLaMA** — локальная языковая модель для генерации ответов.
+- **LLaMA** — локальная языковая модель для генерации ответов(конкретно у меня 11b для теста использовалась).
 
 ---
 
 ## Структура проекта
 
-├── api.py # FastAPI endpoint ├── predict.py # Основная логика поиска и генерации ├── preprocessing.py # Предобработка и генерация эмбеддингов ├── retriever.py # Milvus/Faiss поисковик для документации ├── open_llama.py # Загрузка/дообучение модели LLaMA ├── requirements.txt # Зависимости ├── docker-compose.yaml # Milvus + API сервисы ├── Dockerfile # Образ FastAPI ├── data/ # Входные и выходные данные │ ├── selsup_articles.json # Документация │ ├── result.csv # Готовые вопросы/ответы (QA) │ ├── *.pkl # Эмбеддинги │ └── fine_tuned_openllama/ # Вес LLaMA ├── assets/ │ └── rag_architecture.png # Схема архитектуры └── README.md
-
+├── src/ 
+│ ├── api.py # FastAPI endpoint 
+│ ├── predict.py # Основная логика поиска и генерации 
+│ ├── preprocessing.py # Предобработка и генерация эмбеддингов 
+│ ├── retriever.py # Milvus/Faiss поисковик для документации 
+│ ├── open_llama.py # Загрузка/дообучение модели LLaMA 
+│ └── requirements.txt # Зависимости 
+├── docker-compose.yaml # Milvus + API сервисы 
+├── Dockerfile # Образ FastAPI 
+├── data/ 
+│ ├── selsup_articles.json # Документация 
+│ ├── result.csv # Готовые вопросы/ответы (QA) 
+│ ├── *.pkl # Эмбеддинги 
+│ └── fine_tuned_openllama/ # Вес LLaMA 
+├── assets/ 
+│ └── rag_architecture.png # Схема архитектуры 
+└── README.md
 
 ---
 
